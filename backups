@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+BACKUP_PATH="$HOME/code/auth"
+SCR=$(realpath $(dirname ${BASH_SOURCE[0]}))
+LEAF=$(date -u +%s)
+
+[[ ! -d $BACKUP_PATH ]] && ( mkdir -p $BACKUP_PATH && chmod 700 $BACKUP_PATH -R )
+printf "${CYAN}$SCR${NC}\n"
+tar -cjf $LEAF.tbz2 square
+gpg -se -r $GPG $SCR/$LEAF.*
+mv *.gpg $BACKUP_PATH
+rm $LEAF.* 
+export BACKUP_PATH
+echo -e "${Yel}$BACKUP_PATH${NC}"

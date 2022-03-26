@@ -1,0 +1,11 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+# Development Dependencies
+  gem 'activesupport',      '~> 7.0'
+  gem 'colorize',           '~> 0.8.1'
+  gem 'csv',                '~> 3.2'
+  gem 'interactive_editor', '~> 0.0.11'
+  gem 'open3',              '~> 0.1.1'
+  gem 'yaml',               '~> 0.2.0'
