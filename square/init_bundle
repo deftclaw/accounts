@@ -1,0 +1,27 @@
+#!/usr/sbin/bash
+
+# Error hash
+declare -A ERR
+. errors
+
+# Reads the error hash with a specific value and exits
+err() {
+  echo -e ${ERR["$1"]}
+  exit 1
+}
+
+# Guard clauses, prevent 'no ruby', 'no bundler' errors
+[[ $(ruby -v) ]]        || err no_ruby
+[[ $(bundle version) ]] || err no_bundler
+
+bundle init 
+bundle add 'activesupport'
+bundle add 'colorize'
+bundle add 'csv'
+bundle add 'interactive_editor'
+bundle add 'open3'
+bundle add 'yaml'
+
+# https://github.com/grosser/parallel
+# https://github.com/chadrem/workers
+# https://github.com/ruby-concurrency/concurrent-ruby
