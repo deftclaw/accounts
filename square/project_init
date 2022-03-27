@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+
+# rails new accounts --database=postgresql
+# 
+BL=$(($(ag -n bootsnap **/Gemfile|awk -F : '{print $1}') + 1))
+
+while [[ $i < 3 ]]
+do
+  echo - e "${GREEN}$(( $BL - $i ))${NC}"
+  i++
+done
+
+# pushd accounts && bundle
+
+

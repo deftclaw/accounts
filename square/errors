@@ -1,4 +1,4 @@
-#!/usr/sbin/bash
+#!/usr/bin/bash
 
 ERR['no_ruby']="${RED}Ruby${NC} not installed!"
 ERR['no_bundler']="${RUST}Please: gem install bundler${NC}"
